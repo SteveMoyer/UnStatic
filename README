@@ -1,0 +1,10 @@
+Static Methods/Properties cause problems when testing classes that call them as you are unable to control their behavior.  At best these would be on an instance methods/properties on a class which also has an interface.  At worst, static methods/properties should be backed by a singleton which conforms to the aforementioned interface to allow for substitution.
+
+Example 1:
+     DateTime.Now/DateTime.NowUTC/DateTime.Today 
+
+Replaced with UnStatic.Time.Clock which also has static get properties Now,NowUTC,Today which call through to a static instance of IClock which is implemented by LiveClock which calls DateTime.Now and also by StoppedClock which will return any particular DateTime you give it.  Live clock will give you the live time for production and StoppedClock will allow you to control time for testing or manual execution of events at given times.
+
+Example 2:
+   System.IO.Directory  -> UnStatic.IO.Directory :IDirectory
+   System.IO.File  -> UnStatic.IO.File :IFile
