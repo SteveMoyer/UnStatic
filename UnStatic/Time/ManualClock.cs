@@ -2,11 +2,11 @@
 
 namespace UnStatic.Time
 {
-    public class StoppedClock:IClock
+    public class ManualClock:IClock
     {
         private DateTime _time;
 
-        public StoppedClock(DateTime time)
+        public ManualClock(DateTime time)
         {
             _time = time;
         }

@@ -6,6 +6,7 @@ namespace UnStatic.IO
 {
     public class FileInfo : IFileInfo
     {
+
         private readonly System.IO.FileInfo _fileInfo;
 
         public FileInfo(System.IO.FileInfo fileInfo)
@@ -34,9 +35,9 @@ namespace UnStatic.IO
             get { return DirectoryName; }
         }
 
-        public DirectoryInfo Directory
+        public IDirectoryInfo Directory
         {
-            get { return _fileInfo.Directory; }
+            get { return new DirectoryInfo( _fileInfo.Directory); }
         }
 
         public bool IsReadOnly

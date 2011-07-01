@@ -9,7 +9,7 @@ namespace UnStatic.IO
         string Name { get; }
         long Length { get; }
         string DirectoryName { get; }
-        DirectoryInfo Directory { get; }
+        IDirectoryInfo Directory { get; }
         bool IsReadOnly { get; set; }
         bool Exists { get; }
         FileSecurity GetAccessControl();

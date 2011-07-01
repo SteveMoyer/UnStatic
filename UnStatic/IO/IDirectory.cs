@@ -7,11 +7,11 @@ namespace UnStatic.IO
 {
     public interface IDirectory
     {
-        DirectoryInfo GetParent(string path);
+        IDirectoryInfo GetParent(string path);
 
-        DirectoryInfo CreateDirectory(string path);
+        IDirectoryInfo CreateDirectory(string path);
 
-        DirectoryInfo CreateDirectory(string path, DirectorySecurity directorySecurity);
+        IDirectoryInfo CreateDirectory(string path, DirectorySecurity directorySecurity);
 
         bool Exists(string path);
 

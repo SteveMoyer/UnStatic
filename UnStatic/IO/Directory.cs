@@ -7,19 +7,19 @@ namespace UnStatic.IO
 {
     public class Directory : IDirectory
     {
-        public DirectoryInfo GetParent(string path)
+        public IDirectoryInfo GetParent(string path)
         {
-            return System.IO.Directory.GetParent(path);
+            return new DirectoryInfo( System.IO.Directory.GetParent(path));
         }
 
-        public DirectoryInfo CreateDirectory(string path)
+        public IDirectoryInfo CreateDirectory(string path)
         {
-            return System.IO.Directory.CreateDirectory(path);
+            return new DirectoryInfo(System.IO.Directory.CreateDirectory(path));
         }
 
-        public DirectoryInfo CreateDirectory(string path, DirectorySecurity directorySecurity)
+        public IDirectoryInfo CreateDirectory(string path, DirectorySecurity directorySecurity)
         {
-            return System.IO.Directory.CreateDirectory(path, directorySecurity);
+            return new DirectoryInfo(System.IO.Directory.CreateDirectory(path, directorySecurity));
         }
 
         public bool Exists(string path)
@@ -99,7 +99,7 @@ namespace UnStatic.IO
 
         public void SetAccessControl(string path, DirectorySecurity directorySecurity)
         {
-            throw new NotImplementedException();
+            System.IO.Directory.SetAccessControl(path,directorySecurity);
         }
 
         public string[] GetFiles(string path)
